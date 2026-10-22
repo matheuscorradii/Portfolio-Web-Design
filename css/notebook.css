@@ -1,0 +1,251 @@
+/* =========================================================
+   NOTEBOOK — abertura e fechamento da galeria (scroll-driven)
+   ========================================================= */
+#trabalhos { position: relative; }
+.bleed { width: var(--vw, 100vw); margin-left: calc(50% - var(--vw, 100vw) / 2); }
+
+.mac-scroll { position: relative; height: 290vh; }
+.mac-scroll.mac-out { height: 190vh; }
+.mac-stage {
+  position: sticky; top: 0;
+  height: 100vh; height: 100svh;
+  overflow: hidden;
+  display: grid; place-items: center;
+  background:
+    radial-gradient(60% 50% at 50% 62%, rgba(255,255,255,.055), transparent 70%),
+    var(--paper);
+}
+
+/* legenda acima do notebook */
+.mac-cap {
+  position: absolute; left: 0; right: 0; top: clamp(84px, 12vh, 130px);
+  text-align: center; z-index: 1; padding: 0 20px;
+  will-change: transform, opacity;
+}
+.mac-cap .eyebrow { margin-bottom: 14px; }
+.mac-cap h2.h-title { margin: 0 auto; max-width: none; font-size: clamp(2.2rem, 5.4vw, 4.6rem); }
+.mac-cap .hint {
+  display: inline-flex; align-items: center; gap: 8px; margin-top: 18px;
+  font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-dim);
+}
+.mac-cap .hint i { width: 1px; height: 22px; background: linear-gradient(var(--ink-dim), transparent); animation: hintDrop 1.8s var(--ease) infinite; }
+@keyframes hintDrop { 0% { transform: scaleY(0); transform-origin: top; } 50% { transform: scaleY(1); transform-origin: top; } 51% { transform-origin: bottom; } 100% { transform: scaleY(0); transform-origin: bottom; } }
+
+/* cena 3D */
+.mac-scene {
+  --mw: min(52vw, 82vh, 980px);
+  position: relative; z-index: 2;
+  width: var(--mw);
+  height: calc(var(--mw) * 0.72);
+  margin-top: clamp(120px, 20vh, 220px);
+  transform-origin: 0 0;
+  perspective: calc(var(--mw) * 2.6);
+  perspective-origin: 50% 20%;
+}
+.mac {
+  position: absolute; inset: 0;
+  transform-style: preserve-3d;
+  transform-origin: 50% 94%;
+}
+/* tampa */
+.mac-lid {
+  position: absolute; left: 0.75%; top: 0;
+  width: 98.5%; height: calc(var(--mw) * 0.68);
+  transform-style: preserve-3d;
+  transform-origin: 50% 100%;
+}
+.mac-lid > div {
+  position: absolute; inset: 0;
+  border-radius: calc(var(--mw) * .024) calc(var(--mw) * .024) calc(var(--mw) * .008) calc(var(--mw) * .008);
+  backface-visibility: hidden;
+}
+.mac-lid-front {
+  background: #050506;
+  box-shadow:
+    0 0 0 calc(var(--mw) * .0022) #6e7075,
+    0 0 0 calc(var(--mw) * .0042) #2a2b2e;
+}
+.mac-lid-back {
+  transform: rotateX(180deg);
+  background:
+    radial-gradient(120% 90% at 50% 0%, rgba(255,255,255,.35), transparent 60%),
+    linear-gradient(180deg, #d9dadf 0%, #b8babf 55%, #9fa1a6 100%);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.35);
+}
+.mac-screen {
+  position: absolute;
+  left: 2.1%; right: 2.1%; top: 3.1%; bottom: 4.6%;
+  border-radius: calc(var(--mw) * .008);
+  background: #0d0d0f;
+  overflow: hidden;
+}
+.mac-notch {
+  position: absolute; left: 50%; top: 0; z-index: 3;
+  width: 11%; height: 3.6%;
+  transform: translateX(-50%);
+  background: #050506;
+  border-radius: 0 0 calc(var(--mw) * .008) calc(var(--mw) * .008);
+}
+.mac-notch::after { content: ""; position: absolute; left: 50%; top: 32%; width: calc(var(--mw) * .007); aspect-ratio: 1; border-radius: 50%; transform: translateX(-50%); background: radial-gradient(circle at 35% 35%, #3b4a66, #0a0d14 70%); }
+.mac-glass { position: absolute; inset: 0; z-index: 2; pointer-events: none; background: linear-gradient(115deg, rgba(255,255,255,.07) 0%, rgba(255,255,255,0) 38%); opacity: var(--glass, 1); }
+
+/* conteúdo da tela */
+.scr {
+  position: absolute; inset: 0;
+  background: #fff; color: #1d1d1f;
+  opacity: var(--on, 0);
+  font-size: calc(var(--mw) * .0135);
+}
+.scr-bar {
+  display: flex; align-items: center; gap: .55em;
+  height: 4.8%; padding: 0 1.2em;
+  border-bottom: 1px solid rgba(0,0,0,.07);
+  background: rgba(246,246,248,.9);
+  font-size: .78em; font-weight: 700; color: #6e6e73; letter-spacing: .01em;
+}
+.scr-bar i { width: .82em; height: .82em; border-radius: 50%; background: #ff5f57; flex: none; }
+.scr-bar i:nth-child(2) { background: #febc2e; } .scr-bar i:nth-child(3) { background: #28c840; }
+.scr-bar span { margin: 0 auto; padding-right: 3.6em; }
+.scr-body { padding: 4.2% 5% 0; }
+.scr-head { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3.4%; }
+.scr-head b { display: block; font-size: 2.3em; font-weight: 800; letter-spacing: -.03em; line-height: .95; text-transform: uppercase; }
+.scr-head b em { font-family: "Fraunces", serif; font-style: italic; font-weight: 400; text-transform: none; color: #c4560a; }
+.scr-head small { font-size: .74em; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #86868b; }
+.scr-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.6%; }
+.scr-grid figure { margin: 0; }
+.scr-grid .ph { aspect-ratio: 4/5; border-radius: .45em; overflow: hidden; background: #f2f2f4; border: 1px solid rgba(0,0,0,.06); }
+.scr-grid img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; display: block; }
+.scr-grid figcaption { margin-top: .7em; font-size: .78em; font-weight: 700; line-height: 1.25; color: #1d1d1f; }
+.scr-grid figcaption span { display: block; font-family: "Fraunces", serif; font-style: italic; font-weight: 400; color: #86868b; }
+.scr-end { display: grid; place-content: center; text-align: center; height: 95.2%; }
+.scr-end small { font-size: .8em; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: #c4560a; }
+.scr-end b { display: block; margin: .35em 0 .45em; font-size: 4.2em; font-weight: 800; letter-spacing: -.035em; line-height: .92; text-transform: uppercase; }
+.scr-end b em { font-family: "Fraunces", serif; font-style: italic; font-weight: 400; text-transform: none; color: #c4560a; }
+.scr-end span { font-size: .9em; color: #6e6e73; }
+[data-pop] { will-change: transform, opacity; }
+
+/* base: deck (vista de cima) + borda frontal */
+.mac-deck {
+  position: absolute; left: 0; width: 100%;
+  top: calc(var(--mw) * (0.68 - 0.69)); height: calc(var(--mw) * 0.69);
+  transform-origin: 50% 100%;
+  transform: rotateX(90deg);
+  border-radius: calc(var(--mw) * .03) calc(var(--mw) * .03) 0 0;
+  background: linear-gradient(0deg, #c9cbd0, #b3b5ba);
+}
+.mac-deck .kb {
+  position: absolute; left: 9%; right: 9%; top: 8%; height: 46%;
+  border-radius: calc(var(--mw) * .01);
+  background:
+    repeating-linear-gradient(90deg, transparent 0 5.6%, rgba(0,0,0,.55) 5.6% 6.4%),
+    repeating-linear-gradient(0deg, transparent 0 15.6%, rgba(0,0,0,.55) 15.6% 16.7%),
+    #2b2c2f;
+  box-shadow: inset 0 0 0 calc(var(--mw) * .004) #1b1c1e;
+}
+.mac-deck .tp {
+  position: absolute; left: 31%; right: 31%; top: 60%; height: 34%;
+  border-radius: calc(var(--mw) * .012);
+  background: linear-gradient(180deg, #c2c4c9, #b9bbc0);
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,.08);
+}
+.mac-base {
+  position: absolute; left: -1.5%; width: 103%;
+  top: calc(var(--mw) * 0.68); height: calc(var(--mw) * 0.03);
+  border-radius: 0 0 calc(var(--mw) * .045) calc(var(--mw) * .045) / 0 0 calc(var(--mw) * .03) calc(var(--mw) * .03);
+  background: linear-gradient(180deg, #eceef1 0%, #c6c8cd 22%, #a6a8ad 70%, #7d7f84 100%);
+  box-shadow: 0 calc(var(--mw) * .03) calc(var(--mw) * .05) rgba(0,0,0,.55);
+}
+.mac-base::before {
+  content: ""; position: absolute; left: 50%; top: 0; transform: translateX(-50%);
+  width: 15%; height: 42%;
+  border-radius: 0 0 calc(var(--mw) * .012) calc(var(--mw) * .012);
+  background: linear-gradient(180deg, #9a9ca1, #c3c5ca);
+}
+
+/* notebook 3D (WebGL) — o .mac-scene em CSS vira só a "caixa" de enquadramento */
+.mac-gl { position: absolute; inset: 0; z-index: 2; width: 100%; height: 100%; pointer-events: none; display: block; }
+.mac-stage.gl .mac-scene { visibility: hidden; }
+
+/* camada branca que fecha a transição */
+.mac-white { position: absolute; inset: 0; z-index: 4; background: #fff; opacity: 0; pointer-events: none; }
+
+/* ---------- mundo branco (dentro do "sistema") ---------- */
+.mac-world {
+  --ink: #1d1d1f;
+  --ink-soft: #515154;
+  --ink-dim: #86868b;
+  --paper: #ffffff;
+  --paper-raised: #f5f5f7;
+  --line: rgba(0,0,0,0.1);
+  --accent: #c4560a;
+  --accent-chip-bg: rgba(196,86,10,0.08);
+  --accent-chip-line: rgba(196,86,10,0.26);
+  position: relative;
+  background: var(--paper);
+  color: var(--ink);
+  padding-bottom: clamp(40px, 6vw, 80px);
+}
+.mac-world ::selection { background: var(--accent); color: #fff; }
+.mac-world .pg-scroll { scrollbar-color: rgba(0,0,0,.25) transparent; }
+.mac-world .btn:hover { color: #fff; }
+.mac-world .showcase .chrome i { background: #ff5f57; }
+.mac-world .showcase .chrome i:nth-child(2) { background: #febc2e; }
+.mac-world .showcase .chrome i:nth-child(3) { background: #28c840; }
+.mac-world .cases { padding-top: clamp(60px, 9vw, 120px); }
+
+/* barra de menu estilo macOS */
+.mac-bar {
+  position: sticky; top: 0; z-index: 45;
+  height: 44px;
+  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
+  padding: 0 clamp(16px, 3vw, 28px);
+  background: rgba(255,255,255,.74);
+  -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid rgba(0,0,0,.08);
+  font-size: 12.5px; font-weight: 700; color: #1d1d1f;
+}
+.mac-bar .lights { display: flex; align-items: center; gap: 8px; }
+.mac-bar .lights a, .mac-bar .lights i {
+  width: 12px; height: 12px; border-radius: 50%; display: block; flex: none;
+  background: #ff5f57; box-shadow: inset 0 0 0 .5px rgba(0,0,0,.18);
+}
+.mac-bar .lights i:nth-of-type(1) { background: #febc2e; }
+.mac-bar .lights i:nth-of-type(2) { background: #28c840; }
+.mac-bar .lights a { position: relative; }
+.mac-bar .lights a::after { content: "×"; position: absolute; inset: 0; display: grid; place-items: center; font-size: 10px; line-height: 1; color: rgba(0,0,0,.55); opacity: 0; transition: opacity .2s; }
+.mac-bar .lights:hover a::after { opacity: 1; }
+.mac-bar .lights b { margin-left: 10px; font-weight: 800; letter-spacing: -.01em; white-space: nowrap; }
+.mac-bar .lights b em { font-family: "Fraunces", serif; font-weight: 400; color: var(--accent); }
+.mac-bar .now { display: flex; align-items: center; gap: 10px; min-width: 0; white-space: nowrap; }
+.mac-bar .now .idx { font-family: "Fraunces", serif; font-style: italic; font-weight: 400; color: var(--ink-dim); }
+.mac-bar .now .ttl { overflow: hidden; text-overflow: ellipsis; transition: opacity .25s var(--ease), transform .25s var(--ease); }
+.mac-bar .now .ttl.swap { opacity: 0; transform: translateY(4px); }
+.mac-bar .right { justify-self: end; display: flex; align-items: center; gap: 12px; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-dim); }
+.mac-bar .right .dots { display: flex; gap: 5px; }
+.mac-bar .right .dots i { width: 5px; height: 5px; border-radius: 50%; background: rgba(0,0,0,.15); transition: background .3s var(--ease), transform .3s var(--ease); }
+.mac-bar .right .dots i.on { background: var(--accent); transform: scale(1.3); }
+@media (max-width: 640px) {
+  .mac-bar { grid-template-columns: auto 1fr; gap: 14px; }
+  .mac-bar .lights b, .mac-bar .right { display: none; }
+}
+
+/* nav principal some enquanto a barra do "sistema" está ativa */
+header.nav { transition: opacity .35s var(--ease), transform .35s var(--ease); }
+html.in-mac header.nav { opacity: 0; transform: translateY(-12px); pointer-events: none; }
+html.in-mac header.nav * { pointer-events: none; }
+
+/* ---------- modo leve: celular + movimento reduzido ---------- */
+html.mac-lite .mac-scroll { height: auto; }
+html.mac-lite .mac-stage { position: relative; height: auto; min-height: 0; padding: 120px 0 80px; display: flex; flex-direction: column; align-items: center; }
+html.mac-lite .mac-cap { position: relative; top: auto; margin-bottom: 64px; }
+html.mac-lite .mac-out .mac-stage { padding: 60px 0 110px; }
+html.mac-lite .mac-scene { --mw: min(86vw, 560px); margin-top: 0; }
+html.mac-lite .mac-white,
+html.mac-lite .mac-cap .hint { display: none; }
+html.mac-lite .mac-world::before,
+html.mac-lite .mac-world::after { content: ""; position: absolute; left: 0; right: 0; height: 26vh; pointer-events: none; z-index: 1; }
+html.mac-lite .mac-world::before { top: 0; background: linear-gradient(#181816, rgba(255,255,255,0)); }
+html.mac-lite .mac-world::after { bottom: 0; background: linear-gradient(rgba(255,255,255,0), #181816); }
+html.mac-lite .mac-world { padding-bottom: 28vh; }
+html.mac-lite .mac-world .cases { padding-top: 22vh; }
+html.mac-lite .mac-bar { z-index: 45; background: #fff; }
