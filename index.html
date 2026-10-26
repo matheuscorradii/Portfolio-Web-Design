@@ -16,6 +16,8 @@
 </head>
 <body>
 
+<div class="bg-fx" aria-hidden="true"><div class="bg-grid"></div><div class="bg-grid g2"></div><div class="bg-glow bg-glow-a"></div><div class="bg-glow bg-glow-b"></div><div class="bg-glow bg-glow-c"></div></div>
+
 <header class="nav">
   <a class="brand" href="#top">Matheus<em class="i">Corradi</em></a>
   <nav class="links">
@@ -28,120 +30,28 @@
 
 <main class="wrap" id="top">
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-meta">
-      <span>Web design &amp; lançamentos<br>Por Matheus Corradi</span>
-      <span class="r">Brasil<br>Disponível para novos projetos<br>2026</span>
-    </div>
-    <h1 class="display">
-      <span class="line"><span>A arte de</span></span>
-      <span class="line"><span>vender <em class="i">com os olhos</em></span></span>
-    </h1>
-    <div class="hero-foot">
-      <div>
-        <p class="lede">Web designer há 4+ anos, especialista em páginas de lançamento, venda e anúncios — mais de 200 clientes atendidos, todos por indicação.</p>
-        <div class="btn-row">
-          <a class="btn" href="#trabalhos">Ver trabalhos</a>
-          <a class="btn ghost" href="#contato">Falar comigo</a>
-        </div>
-      </div>
-      <div class="hero-stats">
-        <div class="stat"><div class="num">200+</div><div class="lbl">Clientes</div></div>
-        <div class="stat"><div class="num">300+</div><div class="lbl">Páginas</div></div>
-        <div class="stat"><div class="num">4+</div><div class="lbl">Anos</div></div>
+  <!-- HERO: foto + nome grande; a saída é ligada ao scroll (js/hero.js) -->
+  <section class="hero bleed">
+    <div class="hero-stage">
+      <div class="hero-media"><img src="assets/img/hero/matheus-2000.webp" srcset="assets/img/hero/matheus-1100.webp 1100w, assets/img/hero/matheus-2000.webp 2000w" sizes="100vw" width="2000" height="1333" alt="Matheus Corradi" fetchpriority="high" decoding="async"></div>
+      <div class="hero-ui wrap">
+        <p class="h-top-l h-in" style="--d:.9s">Web design &amp; lançamentos<br>Por Matheus Corradi</p>
+        <p class="h-top-r h-in" style="--d:1s">Brasil<br>Disponível para novos projetos<br>2026</p>
+        <p class="h-side h-in" style="--d:1.15s">Web designer há 4+ anos, especialista em páginas de lançamento, venda e anúncios — mais de 200 clientes atendidos, todos por indicação.<br><a href="#trabalhos">Ver trabalhos ↓</a></p>
+        <h1 class="h-name hero-out"><span class="ln"><span>Matheus</span></span><span class="ln"><span>Corradi</span></span></h1>
+        <p class="h-bot-r h-in" style="--d:1.3s">A arte de vender<br><em class="i">com os olhos</em></p>
+        <a class="h-scroll h-in" style="--d:1.45s" href="#metodo">Role ↓</a>
       </div>
     </div>
   </section>
 
-  <!-- QUICK FACTS -->
-  <section class="facts reveal">
-    <div class="facts-grid">
-      <div class="fact-item">
-        <span class="fn">01 — Quem é</span>
-        <h4>Designer + base técnica</h4>
-        <p>Formado em Sistemas de Informação (UFOP), 4+ anos de design. A base em banco de dados e dev entra em cada página — não só bonita, funcional.</p>
-      </div>
-      <div class="fact-item">
-        <span class="fn">02 — Onde atua</span>
-        <h4>Betim, MG — remoto</h4>
-        <p>Atende agências de tráfego pago e clientes diretos no Brasil inteiro. Disponível para relocação.</p>
-      </div>
-      <div class="fact-item">
-        <span class="fn">03 — O que busca</span>
-        <h4>Projetos pontuais e parcerias fixas</h4>
-        <p>De uma landing page isolada a um lançamento completo — freelas por indicação e trabalho contínuo com agências.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- LOGO STRIP -->
-  <section class="logos reveal">
-    <div class="logos-label">Alguns clientes e parceiros</div>
-    <div class="logos-row">
-      <span>Agência <em class="i">Mest</em></span>
-      <span>Bergamin <em class="i">Advocacia</em></span>
-      <span>Med<em class="i">Experts</em></span>
-      <span>Serafine</span>
-      <span>Campanha <em class="i">2024</em></span>
-    </div>
-  </section>
-
-  <!-- ÍNDICE -->
-  <section class="toc reveal">
-    <div class="section-head">
-      <span class="eyebrow">Nesta página</span>
-      <h2 class="h-title">Por onde <em class="i">começar</em></h2>
-    </div>
-    <div class="toc-list">
-      <a class="toc-item" href="#metodo">
-        <span class="tn">01</span>
-        <span class="tt">Método</span>
-        <span class="td">Como o trabalho é conduzido, fase a fase</span>
-      </a>
-      <a class="toc-item" href="#trabalhos">
-        <span class="tn">02</span>
-        <span class="tt">Trabalhos</span>
-        <span class="td">5 cases — campanha, lançamento, páginas, e-commerce, social</span>
-      </a>
-      <a class="toc-item" href="#sobre">
-        <span class="tn">03</span>
-        <span class="tt">Sobre</span>
-        <span class="td">Trajetória, processo e diferenciais</span>
-      </a>
-      <a class="toc-item" href="#contato">
-        <span class="tn">04</span>
-        <span class="tt">Contato</span>
-        <span class="td">E-mail direto</span>
-      </a>
-    </div>
-  </section>
-
-  <!-- MÉTODO -->
-  <section class="section" id="metodo">
-    <div class="section-head reveal">
-      <span class="eyebrow">Processo</span>
-      <h2 class="h-title">Método <em class="i">de trabalho</em></h2>
-    </div>
-    <div class="method-steps reveal">
-      <div class="method-step">
-        <span class="mn">Fase 01</span>
-        <h4>Entender o pedido</h4>
-        <p>Briefing direto com o cliente — nicho, prazo, referências. Organização por prioridade, método kanban, sem burocracia.</p>
-        <div class="method-tools"><span>Briefing</span><span>Kanban</span></div>
-      </div>
-      <div class="method-step">
-        <span class="mn">Fase 02</span>
-        <h4>Design e construção</h4>
-        <p>Identidade e wireframe no Figma, peças no Photoshop, implementação em WordPress/Elementor com CSS e JS sob medida quando o tema exige.</p>
-        <div class="method-tools"><span>Figma</span><span>Photoshop</span><span>WordPress</span><span>Elementor</span><span>CSS/JS</span></div>
-      </div>
-      <div class="method-step">
-        <span class="mn">Fase 03</span>
-        <h4>Entrega e ajuste</h4>
-        <p>Entrega pontual — <em class="i">feito é melhor que perfeito</em>. Ajustes rápidos com base no desempenho dos anúncios (Meta Ads, Google Ads) quando aplicável.</p>
-        <div class="method-tools"><span>Meta Ads</span><span>Google Ads</span><span>Revisão</span></div>
-      </div>
+  <!-- MÉTODO: gancho curto pros trabalhos -->
+  <section class="hook reveal" id="metodo">
+    <span class="eyebrow">Processo</span>
+    <p class="hook-text">Briefing direto, design sob medida e entrega pontual — <em class="i">feito é melhor que perfeito</em>.</p>
+    <div class="hook-foot">
+      <p class="hook-steps"><span><i>01</i> Entender</span><span><i>02</i> Construir</span><span><i>03</i> Entregar</span></p>
+      <a class="hook-cta" href="#trabalhos">Ver os trabalhos<span>↓</span></a>
     </div>
   </section>
 
@@ -462,45 +372,55 @@
     </div>
   </section>
 
-  <!-- SOBRE -->
+  <!-- SOBRE: foto + texto curto -->
   <section class="section about" id="sobre">
-    <div class="section-head reveal">
-      <span class="eyebrow">Sobre</span>
-      <h2 class="h-title">Quem <em class="i">faz</em></h2>
-    </div>
     <div class="about-grid reveal">
-      <div>
+      <figure class="about-photo"><img src="assets/img/sobre/matheus-1200.webp" srcset="assets/img/sobre/matheus-700.webp 700w, assets/img/sobre/matheus-1200.webp 1200w" sizes="(max-width: 860px) 100vw, 45vw" width="1200" height="1500" alt="Matheus Corradi" loading="lazy" decoding="async"></figure>
+      <div class="about-copy">
+        <span class="eyebrow">Sobre</span>
+        <h2 class="h-title">Quem <em class="i">faz</em></h2>
         <p class="lede">Entrei na faculdade pra estudar Sistemas de Informação. A pandemia me levou pro design — <em class="i">pra levantar caixa</em> — e virou o trabalho da minha vida.</p>
-        <p class="body-copy">Hoje atendo agências de tráfego pago e clientes diretos que precisam de algo pontual e bem feito. Minha base técnica (banco de dados, front e back-end) entra na forma como penso cada página: não só bonita, mas completa.</p>
-        <p class="body-copy">Trabalho com organização simples — agenda por prioridade, método kanban — e um princípio que carrego desde o começo: <strong>feito é melhor que perfeito.</strong> O cliente quase sempre precisa de algo funcional, entregue com pontualidade, não de um exercício de perfeccionismo.</p>
-        <div class="pill-row">
-          <span class="pill">Web design</span>
-          <span class="pill">Páginas de lançamento</span>
-          <span class="pill">Meta Ads · Google Ads</span>
-          <span class="pill">Social media</span>
-          <span class="pill">Identidade visual</span>
-        </div>
-      </div>
-      <div class="timeline">
-        <div class="tl-item"><span class="yr">2019</span><div><h4>Sistemas de Informação — UFOP</h4><p>Começo da formação técnica em programação, banco de dados e desenvolvimento web.</p></div></div>
-        <div class="tl-item"><span class="yr">2020</span><div><h4>Entrada no design</h4><p>Durante a pandemia, os primeiros clientes — o que viraria 200+ atendimentos.</p></div></div>
-        <div class="tl-item"><span class="yr">2024</span><div><h4>Campanha eleitoral</h4><p>25+ candidatos, sozinho, em 2 meses. Entrada na Agência Mest.</p></div></div>
-        <div class="tl-item"><span class="yr">Hoje</span><div><h4>Agência Mest</h4><p>Web design para tráfego pago, com freelas por indicação em paralelo.</p></div></div>
+        <p class="about-stats"><b>200+</b> clientes · <b>300+</b> páginas · <b>4+</b> anos</p>
+        <ul class="timeline">
+          <li><span class="yr">2019</span><span>Sistemas de Informação — UFOP</span></li>
+          <li><span class="yr">2020</span><span>Entrada no design, durante a pandemia</span></li>
+          <li><span class="yr">2024</span><span>Campanha eleitoral: 25+ candidatos em 2 meses</span></li>
+          <li><span class="yr">Hoje</span><span>Agência Mest + freelas por indicação</span></li>
+        </ul>
       </div>
     </div>
   </section>
 
-  <!-- CONTATO -->
+  <!-- CONTATO: detalhes + formulário (js/contact.js) -->
   <section class="contact reveal" id="contato">
-    <span class="eyebrow">Vamos conversar</span>
-    <h2>Seu próximo <em class="i">projeto</em> começa agora.</h2>
-    <div class="contact-row">
-      <a class="contact-email" href="mailto:contatomatheuscorradi@gmail.com">contatomatheuscorradi@gmail.com</a>
-      <div class="btn-row" style="margin-top:0;">
-        <a class="btn" href="mailto:contatomatheuscorradi@gmail.com">Enviar e-mail</a>
-        <!-- CV escondido até existir o PDF (assets/docs/cv-matheus-corradi.pdf):
-        <a class="btn ghost" href="assets/docs/cv-matheus-corradi.pdf" download>Baixar CV</a> -->
+    <div class="contact-head">
+      <span class="eyebrow">Vamos conversar</span>
+      <h2>Seu próximo <em class="i">projeto</em> começa agora.</h2>
+      <p>Uma landing page, um lançamento completo ou uma parceria fixa — me conte o que você precisa.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="c-card c-info">
+        <h3>Contato direto</h3>
+        <ul>
+          <li><span class="c-ico"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><div><small>E-mail</small><a href="mailto:contatomatheuscorradi@gmail.com">contatomatheuscorradi@gmail.com</a></div></li>
+          <li><span class="c-ico"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span><div><small>Onde</small>Betim, MG — atendo remoto</div></li>
+          <li><span class="c-ico c-live"><i></i></span><div><small>Agenda</small><span class="c-open">Disponível para novos projetos</span></div></li>
+        </ul>
+        <div class="c-social">
+          <small>Redes</small>
+          <div>
+            <a href="https://linkedin.com/in/matheus-corradi" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"/></svg></a>
+            <a href="https://behance.net/matheuscorradi" target="_blank" rel="noopener" aria-label="Behance"><svg viewBox="0 0 24 24"><path d="M3 6h5a3 3 0 0 1 0 6H3zM3 12h6a3 3 0 0 1 0 6H3zM14 14h7a3.5 3.5 0 1 0-1 3M15 7h5"/></svg></a>
+          </div>
+        </div>
       </div>
+      <form class="c-card c-form" id="contactForm" novalidate>
+        <label>Nome<input name="nome" required autocomplete="name" placeholder="Seu nome"></label>
+        <label>E-mail<input name="email" type="email" required autocomplete="email" placeholder="voce@email.com"></label>
+        <label>Mensagem<textarea name="mensagem" rows="5" required placeholder="Conte sobre o projeto, prazo e referências"></textarea></label>
+        <button class="btn c-send" type="submit">Enviar mensagem</button>
+        <p class="c-note" aria-live="polite"></p>
+      </form>
     </div>
   </section>
 

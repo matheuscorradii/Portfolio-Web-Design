@@ -5,7 +5,7 @@
 .bleed { width: var(--vw, 100vw); margin-left: calc(50% - var(--vw, 100vw) / 2); }
 
 .mac-scroll { position: relative; height: 290vh; }
-.mac-scroll.mac-out { height: 190vh; }
+.mac-scroll.mac-out { height: 240vh; }   /* mais rolagem = fechamento mais lento */
 .mac-stage {
   position: sticky; top: 0;
   height: 100vh; height: 100svh;
@@ -183,7 +183,7 @@
   position: relative;
   background: var(--paper);
   color: var(--ink);
-  padding-bottom: clamp(40px, 6vw, 80px);
+  padding-bottom: clamp(16px, 2vw, 32px);
 }
 .mac-world ::selection { background: var(--accent); color: #fff; }
 .mac-world .pg-scroll { scrollbar-color: rgba(0,0,0,.25) transparent; }
@@ -192,6 +192,7 @@
 .mac-world .showcase .chrome i:nth-child(2) { background: #febc2e; }
 .mac-world .showcase .chrome i:nth-child(3) { background: #28c840; }
 .mac-world .cases { padding-top: clamp(60px, 9vw, 120px); }
+.mac-world .case:last-child { margin-bottom: 0; }   /* aproxima o último carrossel do "Obrigado por olhar" */
 
 /* barra de menu estilo macOS */
 .mac-bar {

@@ -6,6 +6,8 @@ import { initPages } from './pages.js';
 import { initViewer } from './viewer.js';
 import { initPress } from './press.js';
 import { initNotebook } from './notebook.js';
+import { initHero } from './hero.js';
+import { initContact } from './contact.js';
 
 initReveal();
 initLightbox();
@@ -14,6 +16,8 @@ initPages();
 initViewer();
 initPress();
 initNotebook();
+initHero();
+initContact();
 
 // Notebook 3D carregado à parte: se o CDN do Three.js falhar, o resto do site
 // segue funcionando e o notebook em CSS fica como fallback.
